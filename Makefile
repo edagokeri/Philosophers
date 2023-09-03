@@ -6,17 +6,17 @@ SRC = 	main.c   \
 		
 OBJ = $(SRC:.c=.o)
 CC = gcc
-CFLAG = -Wall -Wextra -Werror  -fsanitize=address -g
+CFLAG = -Wall -Wextra -Werror  -fsanitize=address
 RM = rm -rf
 NAME = philo
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(SRC) -pthread -o $(NAME)
+	$(CC) $(SRC) $(CFLAG) -pthread -o $(NAME)
 
 clean:
-	$(RM) *.o
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
